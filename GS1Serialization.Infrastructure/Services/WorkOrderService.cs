@@ -86,7 +86,7 @@ namespace GS1Serialization.Infrastructure.Services
         {
             var wo = await _context.WorkOrders
                 .Include(x => x.Product)
-                .ThenInclude(p => p.Customer) 
+                .ThenInclude(p => p!.Customer) 
                 .Include(x => x.Packages)
                 .AsNoTracking() 
                 .FirstOrDefaultAsync(x => x.Id == id);
